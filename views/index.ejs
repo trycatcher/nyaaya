@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+
+    <style>
+    .sections {
+        float: left;
+        margin: 5px;
+        padding: 15px;
+        max-width: 300px;
+        height: 800px;
+        border: 5px solid black;
+    }
+    .sectionDesc {
+        float: left;
+        margin: 5px;
+        padding: 15px;
+        max-width: 300px;
+        height: 600px;
+        border: 5px solid black;
+    }
+    .sectionDescPlain {
+        float: left;
+        margin: 5px;
+        padding: 15px;
+        max-width: 300px;
+        height: 400px;
+        border: 5px solid black;
+    }
+    a:link, a:visited {
+        background-color: green;
+        color: white;
+        padding: 10px 25px;
+        text-align: left;
+        text-decoration: none;
+        display: inline-block;
+    }
+    a:hover, a:active {
+        background-color: red;
+    }
+    </style>
+
+  </head>
+
+
+  <body>
+    <h1>Central Indian Laws</h1>
+    <div><h2><%= law.name %></h2></div>
+
+    <div class="sections">
+      <h2>Sections</h2>
+      <ol>
+          <% for(var i = 0; i < law.sections.length; i++) { %>
+              <li>
+                  <a href='#sectionDesc[i]'><%= law.sections[i].section.article %></a>
+              </li>
+          <% } %>
+      </ol>
+    </div>
+
+    <div class="sectionDesc">
+      <h2>Description</h2>
+      <p><%= law.sections[0].section.description %></p>
+    </div>
+
+    <div class="sectionDescPlain">
+      <h2>For Mere Mortals</h2>
+      <p><%= law.sections[0].section.simplified %></p>
+    </div>
+
+  </body>
+</html>
