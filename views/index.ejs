@@ -60,7 +60,7 @@
       <ol id='articles'>
           <% for(var i = 0; i < law.sections.length; i++) { %>
               <li>
-                  <a href='#' onclick="setDescriptions('<%= law.sections[i].section.description %>', '<%= law.sections[i].section.simplified %>')"><%= law.sections[i].section.article %></a>
+                  <a href='#' onclick="setDescriptions('<%= law.sections[i].description %>', '<%= law.sections[i].simplified %>')"><%= law.sections[i].article %></a>
               </li>
           <% } %>
       </ol>
@@ -68,12 +68,12 @@
 
     <div class="sectionDesc">
       <h2>Description</h2>
-      <p id='articleDesc'><%= law.sections[0].section.description %></p>
+      <p id='articleDesc'><%= law.sections[0].description %></p>
     </div>
 
     <div class="sectionDescPlain">
       <h2>For Mere Mortals</h2>
-      <p id='articleDescPlain'><%= law.sections[0].section.simplified %></p>
+      <p id='articleDescPlain'><%= law.sections[0].simplified %></p>
     </div>
 
   </body>

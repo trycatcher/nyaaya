@@ -3,6 +3,7 @@
   "version" : "0.0.3",
   "dependencies" : {
     "express" : "~4.14.0",
-    "ejs" : "~1.0.0"
+    "ejs" : "~1.0.0",
+    "request" : "~2.73.0"
   }
 }

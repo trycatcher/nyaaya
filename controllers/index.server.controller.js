@@ -1,6 +1,20 @@
+var request = require('request');
+
 exports.render = function(req, res) {
-  res.render('index' , {
-    title: 'Hello Hell-o',
+	request.get('https://immense-shelf-59754.herokuapp.com/sections', function(err, response, body) {
+        if (!err && response.statusCode == 200) {
+        	console.log(body)
+            //var articles = JSON.parse(body);
+            res.render('index' , {
+    			law: {
+        			"name": "TRAI",
+        			"sections": JSON.parse(body)
+        		}
+    		});
+		}
+	})
+
+  /*res.render('index' , {
     law: {
         "name": "The_2_Coasting_Vessels_Act",
         "sections": [
@@ -93,5 +107,5 @@ exports.render = function(req, res) {
 	                    }
                     ]
     }
-  })
+  })*/
 };
