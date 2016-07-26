@@ -3,7 +3,7 @@ var request = require('request');
 exports.render = function(req, res) {
 	request.get('https://immense-shelf-59754.herokuapp.com/sections', function(err, response, body) {
         if (!err && response.statusCode == 200) {
-        	console.log(body)
+        	//console.log(body)
             //var articles = JSON.parse(body);
             res.render('index' , {
     			law: {

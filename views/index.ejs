@@ -1,31 +1,80 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
+  
     <style>
-    .sections {
-        float: left;
-        margin: 5px;
+    .header {
+        padding: 15px;
+        background-color: #D3D3D3;
+        font-family: 'Roboto', serif;
+        font-size: 18px;
+        /*text-shadow: 1px 1px 1px #aaa;*/
+        /*margin: 5px;
         padding: 15px;
         max-width: 300px;
         height: 900px;
-        border: 5px solid black;
+        border: 5px solid black;*/
+    }
+    .sectionWrap {
+        display: flex;
+    }
+    .section {
+        float: left;
+        display: inline-block;
+        width: 20%;
+        padding: 15px;
+        color: #D3D3D3;
+        background-color: black;
+        font-family: 'Roboto', serif;
+        font-size: 18px;
+        /*text-shadow: 1px 1px 1px #aaa;*/
+        /*margin: 5px;
+        padding: 15px;
+        max-width: 300px;
+        height: 900px;
+        border: 5px solid black;*/
     }
     .sectionDesc {
         float: left;
-        margin: 5px;
+        display: inline-block;
+        width: 40%;
+        padding: 15px;
+        background-color: #DCDCDC;
+        font-family: 'Roboto', serif;
+        font-size: 18px;
+        /*text-shadow: 1px 1px 1px #aaa;*/
+        /*margin: 5px;
         padding: 15px;
         max-width: 300px;
         height: 1200px;
-        border: 5px solid black;
+        border: 5px solid black;*/
     }
     .sectionDescPlain {
         float: left;
-        margin: 5px;
+        display: inline-block;
+        width: 40%;
+        padding: 15px;
+        color: #D3D3D3;
+        background-color: black;
+        font-family: 'Roboto', serif;
+        font-size: 18px;
+        /*text-shadow: 1px 1px 1px #aaa;*/
+       /* margin: 5px;
         padding: 15px;
         max-width: 300px;
         height: 600px;
-        border: 5px solid black;
+        border: 5px solid black;*/
+    }
+    @media all and (max-width:800px) //800px for tablets and phones.
+    {
+        #section, #sectionDesc, #sectionDescPlain
+        {
+            display: block; 
+            float: none; 
+            width: 100%;
+        }
     }
     a:link, a:visited {
         background-color: green;
@@ -52,21 +101,30 @@
 
 
   <body>
-    <h1>Central Indian Laws</h1>
-    <div><h2><%= law.name %></h2></div>
-
-    <div class="sections">
-      <h2>Sections</h2>
-      <ol id='articles'>
-          <% for(var i = 0; i < law.sections.length; i++) { %>
-              <li>
-                  <a href='#' onclick="setDescriptions('<%= law.sections[i].description %>', '<%= law.sections[i].simplified %>')"><%= law.sections[i].article %></a>
-              </li>
-          <% } %>
-      </ol>
+    <div class="header">
+      <h1>Central Indian Laws</h1>
+      <h2><%= law.name %></h2>
     </div>
 
-    <div class="sectionDesc">
+    
+    <% for(var i = 0; i < law.sections.length; i++) { %>
+      <div class="sectionWrap">
+        <div class="section">
+          <h2>Section</h2>
+          <p id='articleDesc'><%= law.sections[i].article %></p>
+        </div>
+        <div class="sectionDesc">
+          <h2>Description</h2>
+          <p id='articleDesc'><%= law.sections[i].description %></p>
+        </div>
+        <div class="sectionDescPlain">
+          <h2>For Mere Mortals</h2>
+          <p id='articleDescPlain'><%= law.sections[i].simplified %></p>
+        </div>
+      </div>
+    <% } %>
+
+    <!-- <div class="sectionDesc">
       <h2>Description</h2>
       <p id='articleDesc'><%= law.sections[0].description %></p>
     </div>
@@ -75,6 +133,6 @@
       <h2>For Mere Mortals</h2>
       <p id='articleDescPlain'><%= law.sections[0].simplified %></p>
     </div>
-
+ -->
   </body>
 </html>
